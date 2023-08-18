@@ -23,7 +23,7 @@ docker build \
   -t sean1999/laravel-ci:8.1 \
   --build-arg BASE_PHP_IMAGE=php:8.1-cli-alpine \
   --build-arg NODE_VERSION=16 \
-  --no-cache /Volumes/Workspace/projects/laravel/laravel-ci-cd/images/php
+  --no-cache Images/php
 ```
 
 PHP 8.0 with Node 16 and Composer
@@ -32,7 +32,7 @@ docker build \
   -t sean1999/laravel-ci:8.0 \
   --build-arg BASE_PHP_IMAGE=php:8.0-cli-alpine \
   --build-arg NODE_VERSION=16 \
-  --no-cache /Volumes/Workspace/projects/laravel/laravel-ci-cd/images/php
+  --no-cache Images/php
 ```
 
 ## Roadmap
