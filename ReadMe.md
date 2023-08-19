@@ -10,33 +10,23 @@ Hi, this are my Docker Images that I personally use to run my Gitlab CI/CD Pipel
 
 PHP 8.2 with Node 16 and Composer
 ```bash
-docker build \
-  -t sean1999/laravel-ci:8.2 \
-  --build-arg BASE_PHP_IMAGE=php:8.2-cli-alpine \
-  --build-arg NODE_VERSION=16 \
-  --no-cache Images/php
+docker build -t sean1999/laravel-ci:8.2 --build-arg BASE_PHP_IMAGE=php:8.2-cli-alpine --build-arg NODE_VERSION=16 --no-cache Images/php
+docker push sean1999/laravel-ci:8.2
 ```
 
 PHP 8.1 with Node 16 and Composer
 ```bash
-docker build \
-  -t sean1999/laravel-ci:8.1 \
-  --build-arg BASE_PHP_IMAGE=php:8.1-cli-alpine \
-  --build-arg NODE_VERSION=16 \
-  --no-cache Images/php
+docker build -t sean1999/laravel-ci:8.1 --build-arg BASE_PHP_IMAGE=php:8.1-cli-alpine --build-arg NODE_VERSION=16 --no-cache Images/php
+docker push sean1999/laravel-ci:8.1
 ```
 
 PHP 8.0 with Node 16 and Composer
 ```bash
-docker build \
-  -t sean1999/laravel-ci:8.0 \
-  --build-arg BASE_PHP_IMAGE=php:8.0-cli-alpine \
-  --build-arg NODE_VERSION=16 \
-  --no-cache Images/php
+docker build -t sean1999/laravel-ci:8.0 --build-arg BASE_PHP_IMAGE=php:8.0-cli-alpine --build-arg NODE_VERSION=16 --no-cache Images/php
+docker push sean1999/laravel-ci:8.0
 ```
 
 ## Roadmap
 
 1. For now this repository only handles Laravel Projects but I will soon create a docker image that will also be perfect for Other Frameworks
    1. Svelte & Vue
-2. 
