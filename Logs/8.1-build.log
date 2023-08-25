@@ -28,3 +28,37 @@
 #7 DONE 0.0s
 
 #8 [3/6] RUN apt-get update   && apt-get install -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#8 0.769 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.945 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [52.1 kB]
+#8 1.007 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 1.828 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8906 kB]
+#8 2.682 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [4732 B]
+#8 3.120 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [57.6 kB]
+#8 8.226 Fetched 9220 kB in 8s (1196 kB/s)
+#8 8.226 Reading package lists...
+#8 11.11 Reading package lists...
+#8 13.79 Building dependency tree...
+#8 14.32 Reading state information...
+#8 14.88 bash is already the newest version (5.2.15-2+b2).
+#8 14.88 bash set to manually installed.
+#8 14.88 curl is already the newest version (7.88.1-10+deb12u1).
+#8 14.88 The following additional packages will be installed:
+#8 14.88   dirmngr git-man gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client
+#8 14.88   gpg-wks-server gpgconf gpgsm libassuan0 libcurl3-gnutls liberror-perl
+#8 14.89   libexpat1 libksba8 libncursesw6 libnpth0 pinentry-curses
+#8 14.89 Suggested packages:
+#8 14.89   dbus-user-session libpam-systemd pinentry-gnome3 tor gettext-base
+#8 14.89   git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui gitk gitweb
+#8 14.89   git-cvs git-mediawiki git-svn parcimonie xloadimage scdaemon pinentry-doc
+#8 14.89   zip
+#8 14.89 Recommended packages:
+#8 14.89   less ssh-client libgpm2
+#8 15.36 The following NEW packages will be installed:
+#8 15.36   dirmngr git git-man gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+#8 15.36   gpg-wks-client gpg-wks-server gpgconf gpgsm libassuan0 libcurl3-gnutls
+#8 15.36   liberror-perl libexpat1 libksba8 libncursesw6 libnpth0 lsb-release
+#8 15.36   pinentry-curses sudo unzip
+#8 15.59 0 upgraded, 23 newly installed, 0 to remove and 0 not upgraded.
+#8 15.59 Need to get 19.8 MB of archives.
+#8 15.59 After this operation, 72.0 MB of additional disk space will be used.
+#8 15.59 Get:1 http://deb.debian.org/debian bookworm/main amd64 sudo amd64 1.9.13p3-1+deb12u1 [1889 kB]
