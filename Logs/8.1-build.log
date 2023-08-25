@@ -1,0 +1,30 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.55kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/php:8.1
+#3 ...
+
+#4 [auth] library/php:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/php:8.1
+#3 DONE 4.4s
+
+#5 [1/6] FROM docker.io/library/php:8.1@sha256:1a758968e79dabeb22802d2019d78e6e59fd5b7375612863d73daaa727680534
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 67B done
+#6 DONE 0.0s
+
+#7 [2/6] COPY ./conf.d /usr/local/etc/php/conf.d
+#7 DONE 0.0s
+
+#8 [3/6] RUN apt-get update   && apt-get install -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
