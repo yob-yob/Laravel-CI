@@ -10,7 +10,7 @@ COPY ./conf.d /usr/local/etc/php/conf.d
 
 # Update OS Packages
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg \
+  && apt-get install -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg openssh-client \
   && apt-get clean autoclean \
   && apt-get autoremove --yes \
   && rm -rf /var/lib/apt/lists/*

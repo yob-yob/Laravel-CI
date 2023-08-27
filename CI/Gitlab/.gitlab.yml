@@ -1,0 +1,104 @@
+# Specifies the Docker image used for the CI/CD pipeline.
+image: sean1999/laravel-ci:8.1
+
+# Defines the stages that jobs will be organized into.
+stages:
+  - setup
+  - test
+  - deploy
+
+# Cache configuration template for reuse in other jobs.
+.cache-config:
+  cache:
+    key:
+      files:
+        - package_lock.json
+        - composer.lock
+      prefix: install
+    paths:
+      - .npm/
+      - vendor/
+      - public/build/
+      - .env
+    policy: pull
+
+# SSH configuration template for reuse in other jobs.
+.ssh-config:
+  before_script:
+    # Check if ssh-agent is available, if not, install openssh-client.
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    # Start ssh-agent and add SSH private key from secret variables.
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    # Set up SSH configuration to avoid strict host key checking.
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+# Setup job: Sets up the environment and installs dependencies.
+install:
+  stage: setup
+  extends:
+    - .cache-config
+  cache:
+    policy: pull-push # Allow this job to push changes to the cache.
+  script:
+    - cp .env.ci .env # Copy the CI environment file to main .env
+    - npm ci --cache .npm --prefer-offline # Install npm packages from package_lock.json
+    - composer install  --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - npm run build
+    - php artisan key:generate
+  interruptible: true
+
+# Pint test job: Executes tests using 'pint' testing tool.
+pint:
+  stage: test
+  extends:
+    - .cache-config # Reuse cached files from the install job.
+  script:
+    - php vendor/bin/pint --test -v
+  interruptible: true
+  allow_failure: true # Allow this job to fail without breaking the pipeline.
+
+# Pest test job: Executes tests with PostgreSQL service for database testing.
+pest:
+  stage: test
+  extends:
+    - .cache-config # Reuse cached files from the install job.
+  services:
+    - postgres:14-alpine
+  variables:
+    POSTGRES_DB: testing
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    POSTGRES_HOST_AUTH_METHOD: trust
+  script:
+    - cat .env
+    - rm .env.testing # Remove test environment file, use .env.ci for CI/CD.
+    - php artisan test --coverage --parallel
+  interruptible: true
+
+# Staging deployment job: Deploys to production when on the develop branch.
+staging:
+  stage: deploy
+  extends:
+    - .ssh-config
+  script:
+    - envoy run deploy --server=prod --cleanup --commit="$CI_COMMIT_SHA"
+  environment:
+    name: production
+    url: https://example.com/
+  only:
+    - develop # Only run on the develop branch.
+
+# Production deployment job: Deploys to production when on the main branch.
+production:
+  stage: deploy
+  extends:
+    - .ssh-config
+  script:
+    - envoy run deploy --server=prod --cleanup --commit="$CI_COMMIT_SHA"
+  environment:
+    name: production
+    url: https://example.com/
+  only:
+    - main # Only run on the main branch.
