@@ -1,25 +1,31 @@
-.PHONY: build-8.3 build-8.2 build-8.1
+.PHONY: build-base-php-image build-laravel-ci-image
 
-build-8.3:
-	@echo "Building PHP 8.3 image..."
-	docker build -t sean1999/base-php-ci:8.3 \
-	  --build-arg BASE_PHP_IMAGE=php:8.3  \
-	  --platform=linux/amd64 \
-	  --no-cache Images/php/Base  2>&1 | tee Logs/8.3-build.log
-	docker push sean1999/base-php-ci:8.3
+php ?= 8.1
+node ?= 22
 
-build-8.2:
-	@echo "Building PHP 8.2 image..."
-	docker build -t sean1999/base-php-ci:8.2 \
-	  --build-arg BASE_PHP_IMAGE=php:8.2  \
-	  --platform=linux/amd64 \
-	  --no-cache Images/php/Base  2>&1 | tee Logs/8.2-build.log
-	docker push sean1999/base-php-ci:8.2
+build-all:
+	$(MAKE) php=8.1 build-base-php-image
+	$(MAKE) php=8.2 build-base-php-image
+	$(MAKE) php=8.3 build-base-php-image
+	$(MAKE) php=8.1 build-laravel-ci-image
+	$(MAKE) php=8.2 build-laravel-ci-image
+	$(MAKE) php=8.3 build-laravel-ci-image
 
-build-8.1:
-	@echo "Building PHP 8.1 image..."
-	docker build -t sean1999/base-php-ci:8.1 \
-	  --build-arg BASE_PHP_IMAGE=php:8.1  \
+build-base-php-image:
+	@echo "Building sean1999/base-php-ci:$(php) image."
+	docker build -t sean1999/base-php-ci:$(php) \
+	  --build-arg BASE_PHP_IMAGE=php:$(php)  \
 	  --platform=linux/amd64 \
-	  --no-cache Images/php/Base  2>&1 | tee Logs/8.1-build.log
-	docker push sean1999/base-php-ci:8.1
+	  Images/php/Base  2>&1 | tee Logs/$(php)-build.log
+	@echo "Pushing sean1999/base-php-ci:$(php) image to docker hub."
+	docker push sean1999/base-php-ci:$(php)
+
+build-laravel-ci-image:
+	@echo "Building sean1999/laravel-ci:$(php) image."
+		docker build -t sean1999/laravel-ci:$(php) \
+		--build-arg BASE_PHP_IMAGE=sean1999/base-php-ci:$(php)  \
+		--build-arg NODE_VERSION=$(node) \
+		--platform=linux/amd64 \
+		Images/php  2>&1 | tee Logs/$(php)-laravel-build.log
+	@echo "Pushing sean1999/laravel-ci:$(php) image to docker hub."
+	docker push sean1999/laravel-ci:$(php)
