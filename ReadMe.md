@@ -25,10 +25,10 @@ PHP 8.3 with Node 22 and Composer (Change versions as needed)
 
 ```console
 docker build -t sean1999/laravel-ci:8.3 \
-  --build-arg BASE_PHP_IMAGE=php:8.3  \
+  --build-arg BASE_PHP_IMAGE=sean1999/base-php-ci:8.3  \
   --build-arg NODE_VERSION=22 \
   --platform=linux/amd64 \
-  --no-cache Images/php  2>&1 | tee Logs/8.3-build.log
+  --no-cache Images/php  2>&1 | tee Logs/8.3-laravel-build.log
 docker push sean1999/laravel-ci:8.3
 ```
 
