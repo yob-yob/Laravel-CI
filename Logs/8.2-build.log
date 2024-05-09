@@ -1,0 +1,34 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.34kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/php:8.2
+#2 DONE 2.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/php:8.2@sha256:2f2f7deffe4a64ef68c0bced4660d9bad706c01d34effe74c6e67bc4780226cc
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [2/5] COPY ./conf.d /usr/local/etc/php/conf.d
+#6 ERROR: failed to calculate checksum of ref 492c6cf3-f897-43dd-8cad-e7e5936f69a2::gq2qt3emyfomv06holzzgll85: "/conf.d": not found
+------
+ > [2/5] COPY ./conf.d /usr/local/etc/php/conf.d:
+------
+Dockerfile:6
+--------------------
+   4 |     FROM $BASE_PHP_IMAGE
+   5 |     
+   6 | >>> COPY ./conf.d /usr/local/etc/php/conf.d
+   7 |     
+   8 |     ENV PATH="/root/.composer/vendor/bin:$PATH"
+--------------------
+ERROR: failed to solve: failed to compute cache key: failed to calculate checksum of ref 492c6cf3-f897-43dd-8cad-e7e5936f69a2::gq2qt3emyfomv06holzzgll85: "/conf.d": not found
