@@ -2,6 +2,7 @@
 
 #1 [internal] load build definition from Dockerfile
 #1 transferring dockerfile: 954B done
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 9)
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/sean1999/base-php-ci:8.3
@@ -11,72 +12,75 @@
 #3 transferring context: 2B done
 #3 DONE 0.0s
 
-#4 [1/3] FROM docker.io/sean1999/base-php-ci:8.3
+#4 [1/3] FROM docker.io/sean1999/base-php-ci:8.3@sha256:15a8d4a1ea08f968ae5bd68fb6085ca891b5bb6959fd94f0e3368e85c54c5364
+#4 resolve docker.io/sean1999/base-php-ci:8.3@sha256:15a8d4a1ea08f968ae5bd68fb6085ca891b5bb6959fd94f0e3368e85c54c5364 done
 #4 DONE 0.0s
 
 #5 [2/3] RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash   && . /root/.nvm/nvm.sh   && nvm install 22   && nvm alias default 22   && nvm use default   && nvm cache clear   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
-#5 0.291   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-#5 0.291                                  Dload  Upload   Total   Spent    Left  Speed
-#5 0.291   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16555  100 16555    0     0  35092      0 --:--:-- --:--:-- --:--:-- 35298100 16555  100 16555    0     0  35053      0 --:--:-- --:--:-- --:--:-- 35223
-#5 0.816 => Downloading nvm from git to '/root/.nvm'
-#5 0.817 => Cloning into '/root/.nvm'...
-#5 4.725 * (HEAD detached at FETCH_HEAD)
-#5 4.725   master
-#5 4.760 => Compressing and cleaning up git repository
-#5 4.804 
-#5 4.845 => Appending nvm source string to /root/.bashrc
-#5 4.866 => Appending bash_completion source string to /root/.bashrc
-#5 4.927 => Installing Node.js version 22
-#5 7.065 Downloading and installing node v22.1.0...
-#5 8.074 Downloading https://nodejs.org/dist/v22.1.0/node-v22.1.0-linux-x64.tar.xz...
-#5 8.445 #=#=#                                                                         ##O#-#                                                                        ##O=#  #                                                                                                                                                 0.5%                                                                           0.9%#                                                                          2.4%###                                                                        4.3%####                                                                       6.9%#######                                                                    9.9%#########                                                                 13.6%#############                                                             18.8%####################                                                      28.2%##########################                                                37.2%#############################                                             40.8%#####################################                                     51.6%#########################################                                 57.3%#############################################                             63.8%####################################################                      73.2%########################################################                  78.9%###############################################################           88.5%####################################################################      95.7%######################################################################## 100.0%
-#5 11.66 Computing checksum with sha256sum
-#5 11.78 Checksums matched!
-#5 14.64 Now using node v22.1.0 (npm v10.7.0)
-#5 15.36 Creating default alias: default -> 22 (-> v22.1.0 *)
-#5 15.74 => Node.js version 22 has been successfully installed
-#5 15.74 => Close and reopen your terminal to start using nvm or run the following to use it now:
-#5 15.74 
-#5 15.74 export NVM_DIR="$HOME/.nvm"
-#5 15.74 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#5 15.74 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#5 18.21 v22.1.0 is already installed.
-#5 18.94 Now using node v22.1.0 (npm v10.7.0)
-#5 19.69 default -> 22 (-> v22.1.0 *)
-#5 20.64 Now using node v22.1.0 (npm v10.7.0)
-#5 20.67 nvm cache cleared.
-#5 20.88 Reading package lists...
-#5 20.93 Building dependency tree...
-#5 20.93 Reading state information...
-#5 20.95 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-#5 DONE 21.1s
+#5 0.149   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#5 0.149                                  Dload  Upload   Total   Spent    Left  Speed
+#5 0.149   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16555  100 16555    0     0   176k      0 --:--:-- --:--:-- --:--:--  183k
+#5 0.269 => Downloading nvm from git to '/root/.nvm'
+#5 0.270 => Cloning into '/root/.nvm'...
+#5 2.812 * (HEAD detached at FETCH_HEAD)
+#5 2.812   master
+#5 2.841 => Compressing and cleaning up git repository
+#5 2.887 
+#5 2.922 => Appending nvm source string to /root/.bashrc
+#5 2.938 => Appending bash_completion source string to /root/.bashrc
+#5 2.988 => Installing Node.js version 22
+#5 4.210 Downloading and installing node v22.22.0...
+#5 4.715 Downloading https://nodejs.org/dist/v22.22.0/node-v22.22.0-linux-x64.tar.xz...
+#5 4.980                                                                            0.2%#############                                                             18.1%#######################################                                   54.4%#############################################################             85.2%######################################################################## 100.0%
+#5 5.352 Computing checksum with sha256sum
+#5 5.442 Checksums matched!
+#5 7.440 Now using node v22.22.0 (npm v10.9.4)
+#5 8.197 Creating default alias: default -> 22 (-> v22.22.0 *)
+#5 8.578 => Node.js version 22 has been successfully installed
+#5 8.578 => Close and reopen your terminal to start using nvm or run the following to use it now:
+#5 8.578 
+#5 8.578 export NVM_DIR="$HOME/.nvm"
+#5 8.578 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#5 8.578 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#5 10.29 v22.22.0 is already installed.
+#5 10.98 Now using node v22.22.0 (npm v10.9.4)
+#5 11.46 default -> 22 (-> v22.22.0 *)
+#5 12.31 Now using node v22.22.0 (npm v10.9.4)
+#5 12.34 nvm cache cleared.
+#5 12.43 Reading package lists...
+#5 12.47 Building dependency tree...
+#5 12.48 Reading state information...
+#5 12.50 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#5 DONE 12.6s
 
 #6 [3/3] RUN curl -fsSL https://bun.sh/install | bash   && echo 'export PATH="$PATH:/usr/local/bun/bin"' >> ~/.bashrc   && . ~/.bashrc   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
-#6 0.926 #=#=#                                                                         ##O#-#                                                                        ##O=#  #                                                                                                                                                 0.1%##                                                                         3.2%########                                                                  11.1%###########                                                               16.4%################                                                          22.7%####################                                                      28.9%#########################                                                 35.2%#############################                                             41.7%##################################                                        47.6%#######################################                                   54.2%###########################################                               60.7%################################################                          67.4%#####################################################                     73.6%########################################################                  79.0%############################################################              83.4%###############################################################           87.9%##################################################################        92.9%#####################################################################     96.9%######################################################################## 100.0%
-#6 4.694 bun was installed successfully to ~/.bun/bin/bun 
-#6 4.699 
-#6 4.735 Added "~/.bun/bin" to $PATH in "~/.bashrc" 
-#6 4.736 
-#6 4.736 To get started, run: 
-#6 4.736 
-#6 4.736   source /root/.bashrc 
-#6 4.736   bun --help 
-#6 5.311 nvm
-#6 5.398 Reading package lists...
-#6 5.447 Building dependency tree...
-#6 5.449 Reading state information...
-#6 5.465 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-#6 DONE 5.6s
+#6 0.536 #=#=#                                                                                                                                                     0.5%                                                                           1.2%####                                                                       5.8%#######################                                                   31.9%##########################################                                59.1%############################################################              83.3%######################################################################## 100.0%
+#6 1.961 bun was installed successfully to ~/.bun/bin/bun 
+#6 1.966 
+#6 2.002 Added "~/.bun/bin" to $PATH in "~/.bashrc" 
+#6 2.003 
+#6 2.003 To get started, run: 
+#6 2.003 
+#6 2.003   source /root/.bashrc 
+#6 2.003   bun --help 
+#6 2.588 nvm
+#6 2.670 Reading package lists...
+#6 2.712 Building dependency tree...
+#6 2.714 Reading state information...
+#6 2.738 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#6 DONE 2.8s
 
 #7 exporting to image
 #7 exporting layers
-#7 exporting layers 0.5s done
-#7 writing image sha256:91cf93745f5f4a1c9ca1446a28061fae621e926fd7ee25f86d812151cfa16aa8
-#7 writing image sha256:91cf93745f5f4a1c9ca1446a28061fae621e926fd7ee25f86d812151cfa16aa8 done
+#7 exporting layers 4.0s done
+#7 exporting manifest sha256:4028066d19026c8e4da95f186115cd6d229803ca8675695f002c987d29292368 done
+#7 exporting config sha256:bea431205d2a385b3aa76daf4fd9895a6de281a2ed554055aa68892c6980fcd5 done
+#7 exporting attestation manifest sha256:f9f18f235c4486ce8d56fe84fd3c83ebfe8a9def6bf9b6ce8d394dfa52ea8051 done
+#7 exporting manifest list sha256:e374e5a190ccde00115cc35925ffc4ead0a17d7388e64eec35738b7709f7260f done
 #7 naming to docker.io/sean1999/laravel-ci:8.3 done
-#7 DONE 0.6s
+#7 DONE 4.0s
 
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/zhh3ou4fi1khfwt3v4xvrm6qq
+ [33m1 warning found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 9)
 
-What's Next?
-  View a summary of image vulnerabilities and recommendations → docker scout quickview
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/pabpg78exb6vfwzswvweysfk9

@@ -1,0 +1,30 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.40kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/php:7.4
+#2 DONE 2.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/php:7.4@sha256:620a6b9f4d4feef2210026172570465e9d0c1de79766418d3affd09190a7fda5
+#4 resolve docker.io/library/php:7.4@sha256:620a6b9f4d4feef2210026172570465e9d0c1de79766418d3affd09190a7fda5 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 67B done
+#5 DONE 0.0s
+
+#6 [2/5] COPY ./conf.d /usr/local/etc/php/conf.d
+#6 CACHED
+
+#7 [3/5] RUN apt-get update -qq -y   && apt-get install -q -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg openssh-client   && apt-get -q clean autoclean   && apt-get -q autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [4/5] RUN curl -sSLf         -o /usr/local/bin/install-php-extensions         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions   && chmod +x /usr/local/bin/install-php-extensions   && docker-php-ext-enable opcache   && IPE_GD_WITHOUTAVIF=1; IPE_ICU_EN_ONLY=1; IPE_SKIP_CHECK=1; IPE_DEBUG=0 install-php-extensions gd pdo_mysql pdo_pgsql intl zip bz2 pcntl exif bcmath xdebug socket   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#8 1.486 install-php-extensions v.2.9.27
+#8 1.487 #StandWithUkraine

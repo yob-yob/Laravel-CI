@@ -1,0 +1,206 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.39kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/php:8.0
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/php:8.0@sha256:0569e384b9064c04dec55dc6e41be41b494a878dfbb6577a7d76bd50cfd5bc00
+#4 resolve docker.io/library/php:8.0@sha256:0569e384b9064c04dec55dc6e41be41b494a878dfbb6577a7d76bd50cfd5bc00 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 67B done
+#5 DONE 0.0s
+
+#6 [2/5] COPY ./conf.d /usr/local/etc/php/conf.d
+#6 CACHED
+
+#7 [3/5] RUN apt-get update -qq -y   && apt-get install -q -y --no-install-recommends bash git curl unzip sudo lsb-release gnupg openssh-client   && apt-get -q clean autoclean   && apt-get -q autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [4/5] RUN curl -sSLf         -o /usr/local/bin/install-php-extensions         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions   && chmod +x /usr/local/bin/install-php-extensions   && docker-php-ext-enable opcache   && IPE_GD_WITHOUTAVIF=1; IPE_ICU_EN_ONLY=1; IPE_SKIP_CHECK=1; IPE_DEBUG=0 install-php-extensions gd pdo_mysql pdo_pgsql intl zip bz2 pcntl exif bcmath xdebug   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [5/5] RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer   && composer global require "laravel/envoy"   && composer global require "vlucas/phpdotenv"   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#9 1.515 All settings correct for using Composer
+#9 1.531 Downloading...
+#9 5.836 
+#9 5.836 Composer (version 2.8.12) successfully installed to: /usr/local/bin/composer
+#9 5.836 Use it: php /usr/local/bin/composer
+#9 5.836 
+#9 6.111 Changed current directory to /root/.composer
+#9 6.557 ./composer.json has been created
+#9 6.668 Running composer update laravel/envoy
+#9 6.673 Loading composer repositories with package information
+#9 7.777 Updating dependencies
+#9 7.790 Lock file operations: 32 installs, 0 updates, 0 removals
+#9 7.790   - Locking carbonphp/carbon-doctrine-types (2.1.0)
+#9 7.790   - Locking doctrine/inflector (2.1.0)
+#9 7.790   - Locking guzzlehttp/guzzle (7.10.0)
+#9 7.790   - Locking guzzlehttp/promises (2.3.0)
+#9 7.790   - Locking guzzlehttp/psr7 (2.8.0)
+#9 7.790   - Locking illuminate/collections (v9.52.16)
+#9 7.790   - Locking illuminate/conditionable (v9.52.16)
+#9 7.790   - Locking illuminate/contracts (v9.52.16)
+#9 7.790   - Locking illuminate/macroable (v9.52.16)
+#9 7.790   - Locking illuminate/support (v9.52.16)
+#9 7.790   - Locking laravel/envoy (v2.10.2)
+#9 7.790   - Locking nesbot/carbon (2.73.0)
+#9 7.790   - Locking psr/clock (1.0.0)
+#9 7.790   - Locking psr/container (2.0.2)
+#9 7.790   - Locking psr/http-client (1.0.3)
+#9 7.790   - Locking psr/http-factory (1.1.0)
+#9 7.790   - Locking psr/http-message (2.0)
+#9 7.790   - Locking psr/simple-cache (3.0.0)
+#9 7.790   - Locking ralouphie/getallheaders (3.0.3)
+#9 7.790   - Locking symfony/console (v6.0.19)
+#9 7.790   - Locking symfony/deprecation-contracts (v3.0.2)
+#9 7.790   - Locking symfony/polyfill-ctype (v1.33.0)
+#9 7.790   - Locking symfony/polyfill-intl-grapheme (v1.33.0)
+#9 7.790   - Locking symfony/polyfill-intl-normalizer (v1.33.0)
+#9 7.790   - Locking symfony/polyfill-mbstring (v1.33.0)
+#9 7.790   - Locking symfony/polyfill-php80 (v1.33.0)
+#9 7.790   - Locking symfony/process (v6.0.19)
+#9 7.790   - Locking symfony/service-contracts (v3.0.2)
+#9 7.790   - Locking symfony/string (v6.0.19)
+#9 7.790   - Locking symfony/translation (v6.0.19)
+#9 7.790   - Locking symfony/translation-contracts (v3.0.2)
+#9 7.790   - Locking voku/portable-ascii (2.0.3)
+#9 7.792 Writing lock file
+#9 7.792 Installing dependencies from lock file (including require-dev)
+#9 7.793 Package operations: 32 installs, 0 updates, 0 removals
+#9 7.816   - Downloading doctrine/inflector (2.1.0)
+#9 7.817   - Downloading guzzlehttp/promises (2.3.0)
+#9 7.817   - Downloading ralouphie/getallheaders (3.0.3)
+#9 7.818   - Downloading psr/http-message (2.0)
+#9 7.818   - Downloading psr/http-factory (1.1.0)
+#9 7.818   - Downloading guzzlehttp/psr7 (2.8.0)
+#9 7.819   - Downloading illuminate/macroable (v9.52.16)
+#9 7.820   - Downloading psr/simple-cache (3.0.0)
+#9 7.820   - Downloading psr/container (2.0.2)
+#9 7.820   - Downloading illuminate/contracts (v9.52.16)
+#9 7.820   - Downloading illuminate/conditionable (v9.52.16)
+#9 7.821   - Downloading illuminate/collections (v9.52.16)
+#9 7.821   - Downloading symfony/process (v6.0.19)
+#9 7.821   - Downloading symfony/polyfill-mbstring (v1.33.0)
+#9 7.822   - Downloading symfony/polyfill-intl-normalizer (v1.33.0)
+#9 7.822   - Downloading symfony/polyfill-intl-grapheme (v1.33.0)
+#9 7.822   - Downloading symfony/polyfill-ctype (v1.33.0)
+#9 7.822   - Downloading symfony/string (v6.0.19)
+#9 7.823   - Downloading symfony/service-contracts (v3.0.2)
+#9 7.823   - Downloading symfony/console (v6.0.19)
+#9 7.823   - Downloading voku/portable-ascii (2.0.3)
+#9 7.824   - Downloading symfony/translation-contracts (v3.0.2)
+#9 7.824   - Downloading symfony/translation (v6.0.19)
+#9 7.824   - Downloading symfony/polyfill-php80 (v1.33.0)
+#9 7.824   - Downloading psr/clock (1.0.0)
+#9 7.824   - Downloading carbonphp/carbon-doctrine-types (2.1.0)
+#9 7.825   - Downloading nesbot/carbon (2.73.0)
+#9 7.825   - Downloading illuminate/support (v9.52.16)
+#9 7.825   - Downloading symfony/deprecation-contracts (v3.0.2)
+#9 7.825   - Downloading psr/http-client (1.0.3)
+#9 7.825   - Downloading guzzlehttp/guzzle (7.10.0)
+#9 7.825   - Downloading laravel/envoy (v2.10.2)
+#9 7.837   0/32 [>---------------------------]   0%
+#9 8.695   6/32 [=====>----------------------]  18%
+#9 8.797  11/32 [=========>------------------]  34%
+#9 9.032  16/32 [==============>-------------]  50%
+#9 9.470  23/32 [====================>-------]  71%
+#9 10.24  28/32 [========================>---]  87%
+#9 10.26  32/32 [============================] 100%
+#9 10.26   - Installing doctrine/inflector (2.1.0): Extracting archive
+#9 10.27   - Installing guzzlehttp/promises (2.3.0): Extracting archive
+#9 10.27   - Installing ralouphie/getallheaders (3.0.3): Extracting archive
+#9 10.27   - Installing psr/http-message (2.0): Extracting archive
+#9 10.28   - Installing psr/http-factory (1.1.0): Extracting archive
+#9 10.28   - Installing guzzlehttp/psr7 (2.8.0): Extracting archive
+#9 10.28   - Installing illuminate/macroable (v9.52.16): Extracting archive
+#9 10.28   - Installing psr/simple-cache (3.0.0): Extracting archive
+#9 10.29   - Installing psr/container (2.0.2): Extracting archive
+#9 10.29   - Installing illuminate/contracts (v9.52.16): Extracting archive
+#9 10.29   - Installing illuminate/conditionable (v9.52.16): Extracting archive
+#9 10.29   - Installing illuminate/collections (v9.52.16): Extracting archive
+#9 10.29   - Installing symfony/process (v6.0.19): Extracting archive
+#9 10.29   - Installing symfony/polyfill-mbstring (v1.33.0): Extracting archive
+#9 10.29   - Installing symfony/polyfill-intl-normalizer (v1.33.0): Extracting archive
+#9 10.29   - Installing symfony/polyfill-intl-grapheme (v1.33.0): Extracting archive
+#9 10.29   - Installing symfony/polyfill-ctype (v1.33.0): Extracting archive
+#9 10.29   - Installing symfony/string (v6.0.19): Extracting archive
+#9 10.29   - Installing symfony/service-contracts (v3.0.2): Extracting archive
+#9 10.29   - Installing symfony/console (v6.0.19): Extracting archive
+#9 10.29   - Installing voku/portable-ascii (2.0.3): Extracting archive
+#9 10.30   - Installing symfony/translation-contracts (v3.0.2): Extracting archive
+#9 10.30   - Installing symfony/translation (v6.0.19): Extracting archive
+#9 10.30   - Installing symfony/polyfill-php80 (v1.33.0): Extracting archive
+#9 10.30   - Installing psr/clock (1.0.0): Extracting archive
+#9 10.30   - Installing carbonphp/carbon-doctrine-types (2.1.0): Extracting archive
+#9 10.30   - Installing nesbot/carbon (2.73.0): Extracting archive
+#9 10.30   - Installing illuminate/support (v9.52.16): Extracting archive
+#9 10.30   - Installing symfony/deprecation-contracts (v3.0.2): Extracting archive
+#9 10.30   - Installing psr/http-client (1.0.3): Extracting archive
+#9 10.30   - Installing guzzlehttp/guzzle (7.10.0): Extracting archive
+#9 10.30   - Installing laravel/envoy (v2.10.2): Extracting archive
+#9 10.30   0/32 [>---------------------------]   0%
+#9 10.40  19/32 [================>-----------]  59%
+#9 10.50  31/32 [===========================>]  96%
+#9 10.50  32/32 [============================] 100%
+#9 10.86 15 package suggestions were added by new dependencies, use `composer suggest` to see details.
+#9 10.86 Generating autoload files
+#9 10.88 19 packages you are using are looking for funding.
+#9 10.88 Use the `composer fund` command to find out more!
+#9 10.89 Found 1 security vulnerability advisory affecting 1 package.
+#9 10.89 Run "composer audit" for a full list of advisories.
+#9 10.89 Using version ^2.10 for laravel/envoy
+#9 11.16 Changed current directory to /root/.composer
+#9 11.64 ./composer.json has been updated
+#9 11.75 Running composer update vlucas/phpdotenv
+#9 11.76 Loading composer repositories with package information
+#9 12.07 Updating dependencies
+#9 12.08 Lock file operations: 3 installs, 0 updates, 0 removals
+#9 12.08   - Locking graham-campbell/result-type (v1.1.3)
+#9 12.08   - Locking phpoption/phpoption (1.9.4)
+#9 12.08   - Locking vlucas/phpdotenv (v5.6.2)
+#9 12.08 Writing lock file
+#9 12.08 Installing dependencies from lock file (including require-dev)
+#9 12.09 Package operations: 3 installs, 0 updates, 0 removals
+#9 12.11   - Downloading phpoption/phpoption (1.9.4)
+#9 12.11   - Downloading graham-campbell/result-type (v1.1.3)
+#9 12.11   - Downloading vlucas/phpdotenv (v5.6.2)
+#9 12.12  0/3 [>---------------------------]   0%
+#9 12.83  2/3 [==================>---------]  66%
+#9 12.85  3/3 [============================] 100%
+#9 12.85   - Installing phpoption/phpoption (1.9.4): Extracting archive
+#9 12.86   - Installing graham-campbell/result-type (v1.1.3): Extracting archive
+#9 12.86   - Installing vlucas/phpdotenv (v5.6.2): Extracting archive
+#9 12.86  0/3 [>---------------------------]   0%
+#9 12.92  3/3 [============================] 100%
+#9 13.27 Generating autoload files
+#9 13.29 22 packages you are using are looking for funding.
+#9 13.29 Use the `composer fund` command to find out more!
+#9 13.67 Found 1 security vulnerability advisory affecting 1 package.
+#9 13.67 Run "composer audit" for a full list of advisories.
+#9 13.68 Using version ^5.6 for vlucas/phpdotenv
+#9 13.81 Reading package lists...
+#9 13.85 Building dependency tree...
+#9 13.85 Reading state information...
+#9 13.87 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#9 DONE 13.9s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 exporting manifest sha256:dd581c340a293adb5fabcd6cfcd866635f364b62791eae420abff11a924bb3ee done
+#10 exporting config sha256:9c070359a98cf7aab7925a6af405330e25abb65300aa13a394ca0c3eb59bbbac done
+#10 exporting attestation manifest sha256:af4a577c15294a4702aefb6659dbfe5a893ac7ba226ebaba4f93866d63585d5c done
+#10 exporting manifest list sha256:e8178806377bc3e5cb43f740363740ac6580e91eaed0f5e2bea8a7575027f4cd done
+#10 naming to docker.io/sean1999/base-php-ci:8.0 done
+#10 DONE 0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/pnom9yiegod20q0ucip6j6ely

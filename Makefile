@@ -4,12 +4,20 @@ php ?= 8.1
 node ?= 22
 
 build-all:
-	$(MAKE) php=8.1 build-base-php-image
+	# $(MAKE) php=7.4 build-base-php-image
+	# $(MAKE) php=8.0 build-base-php-image
+	# $(MAKE) php=8.1 build-base-php-image
 	$(MAKE) php=8.2 build-base-php-image
 	$(MAKE) php=8.3 build-base-php-image
-	$(MAKE) php=8.1 build-laravel-ci-image
+	$(MAKE) php=8.4 build-base-php-image
+	# $(MAKE) php=8.5 build-base-php-image
+	# $(MAKE) php=7.4 build-laravel-ci-image
+	# $(MAKE) php=8.0 build-laravel-ci-image
+	# $(MAKE) php=8.1 build-laravel-ci-image
 	$(MAKE) php=8.2 build-laravel-ci-image
 	$(MAKE) php=8.3 build-laravel-ci-image
+	$(MAKE) php=8.4 build-laravel-ci-image
+	# $(MAKE) php=8.5 build-laravel-ci-image
 
 build-base-php-image:
 	@echo "Building sean1999/base-php-ci:$(php) image."

@@ -53,6 +53,39 @@
   }
 @endbefore
 
+@story('server:initialize')
+  setup:project-directories
+  upload:initial-shared-files
+@endstory
+
+@task('setup:project-directories', ['on' => $server])
+  {{-- ~/{project_root} --}}
+  echo "Creating Project Root Directory ({{ $project_root }})"
+  test -d {{ $project_root }} || mkdir -p {{ $project_root }}
+  {{-- ~/{project_root}/current_release --}}
+  echo "Creating Current Release Directory ({{ $current_path }})"
+  test -d {{ $current_path }} || mkdir -p {{ $current_path }}
+  {{-- ~/{project_root}/releases --}}
+  echo "Creating Releases Directory ({{ $releases_dir }})"
+  test -d {{ $releases_dir }} || mkdir -p {{ $releases_dir }}
+  {{-- ~/{project_root}/shared --}}
+  echo "Creating Shared Directory ({{ $shared_dir }})"
+  test -d {{ $shared_dir }} || mkdir -p {{ $shared_dir }}
+@endtask
+
+@task('upload:initial-shared-files', ['on' => 'local'])
+  {{-- Upload .env file --}}
+  @if ($env)
+    rsync -cP ./.env {{ $__container->servers[$server] }}:{{ $shared_env_path }}
+  @endif
+  {{-- Upload storage file --}}
+  rsync -aP ./storage/ {{ $__container->servers[$server] }}:{{ $shared_storage_path }} 
+
+  @if ($packages['statikbe/laravel-chained-translator'])
+    rsync -aP ./lang-custom/ {{ $__container->servers[$server] }}:{{ $shared_lang_custom_path }}
+  @endif
+@endtask
+
 {{-- Servers --}}
 @task('deploy', ['on' => $server])
     {{-- Clone Project --}}

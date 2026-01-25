@@ -1,0 +1,86 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 954B done
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 9)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/sean1999/base-php-ci:8.4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/sean1999/base-php-ci:8.4@sha256:0eecf0ab532308fb8e072bf72464e24bb8a337a7cee30c09a89546715032d0cf
+#4 resolve docker.io/sean1999/base-php-ci:8.4@sha256:0eecf0ab532308fb8e072bf72464e24bb8a337a7cee30c09a89546715032d0cf done
+#4 DONE 0.0s
+
+#5 [2/3] RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash   && . /root/.nvm/nvm.sh   && nvm install 22   && nvm alias default 22   && nvm use default   && nvm cache clear   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#5 0.130   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#5 0.130                                  Dload  Upload   Total   Spent    Left  Speed
+#5 0.131   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 16555  100 16555    0     0   177k      0 --:--:-- --:--:-- --:--:--  183k
+#5 0.251 => Downloading nvm from git to '/root/.nvm'
+#5 0.251 => Cloning into '/root/.nvm'...
+#5 2.783 * (HEAD detached at FETCH_HEAD)
+#5 2.783   master
+#5 2.813 => Compressing and cleaning up git repository
+#5 2.865 
+#5 2.901 => Appending nvm source string to /root/.bashrc
+#5 2.918 => Appending bash_completion source string to /root/.bashrc
+#5 2.969 => Installing Node.js version 22
+#5 4.218 Downloading and installing node v22.22.0...
+#5 4.730 Downloading https://nodejs.org/dist/v22.22.0/node-v22.22.0-linux-x64.tar.xz...
+#5 4.977                                                                            0.2%###########                                                               15.8%#################################                                         46.6%###################################################                       70.9%#########################################################                 79.8%######################################################################    98.3%######################################################################## 100.0%
+#5 5.544 Computing checksum with sha256sum
+#5 5.628 Checksums matched!
+#5 7.713 Now using node v22.22.0 (npm v10.9.4)
+#5 8.387 Creating default alias: default -> 22 (-> v22.22.0 *)
+#5 8.771 => Node.js version 22 has been successfully installed
+#5 8.771 => Close and reopen your terminal to start using nvm or run the following to use it now:
+#5 8.771 
+#5 8.771 export NVM_DIR="$HOME/.nvm"
+#5 8.771 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#5 8.771 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#5 10.54 v22.22.0 is already installed.
+#5 11.16 Now using node v22.22.0 (npm v10.9.4)
+#5 11.65 default -> 22 (-> v22.22.0 *)
+#5 12.50 Now using node v22.22.0 (npm v10.9.4)
+#5 12.53 nvm cache cleared.
+#5 12.63 Reading package lists...
+#5 12.68 Building dependency tree...
+#5 12.68 Reading state information...
+#5 12.70 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#5 DONE 12.8s
+
+#6 [3/3] RUN curl -fsSL https://bun.sh/install | bash   && echo 'export PATH="$PATH:/usr/local/bun/bin"' >> ~/.bashrc   && . ~/.bashrc   && apt-get clean autoclean   && apt-get autoremove --yes   && rm -rf /var/lib/apt/lists/*
+#6 0.498 #=#=#                                                                          #####                                                                      8.0%#####################                                                     30.4%####################################                                      51.2%#########################################################                 79.7%######################################################################## 100.0%
+#6 1.677 bun was installed successfully to ~/.bun/bin/bun 
+#6 1.681 
+#6 1.716 Added "~/.bun/bin" to $PATH in "~/.bashrc" 
+#6 1.716 
+#6 1.716 To get started, run: 
+#6 1.716 
+#6 1.716   source /root/.bashrc 
+#6 1.716   bun --help 
+#6 2.287 nvm
+#6 2.375 Reading package lists...
+#6 2.421 Building dependency tree...
+#6 2.423 Reading state information...
+#6 2.447 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#6 DONE 2.5s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 4.0s done
+#7 exporting manifest sha256:686d089f9f224c7702e8f48f79d827bb745ee35efc5a7c02ce7ccd6d1df8e5c5 done
+#7 exporting config sha256:3b158ffbcb912119c8717c21fbea5402801ad881448d5c1fcf18a734e4bc64a7 done
+#7 exporting attestation manifest sha256:fcc4e71ca44e082701961379cff4b9c198e6bb0a9b5fe7e8ed19065ed025fd02 done
+#7 exporting manifest list sha256:ee5f3939750e8642eb756a5b515475edef8b22b688d884dae0ded43756b328cb done
+#7 naming to docker.io/sean1999/laravel-ci:8.4 done
+#7 DONE 4.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 9)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/hnnsjc6qoxbr5yqh05qryr8f8
